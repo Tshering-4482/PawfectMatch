@@ -1,0 +1,76 @@
+* {box-sizing: border-box}
+
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container{
+  border: none;
+  box-shadow: 0 0 10px 5px rgb(131, 170, 229);
+  padding: 16px;
+  margin: 80px 500px;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+p{
+  text-align: center;
+}
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+.submit,a{
+  text-align: center;
+}
+
+.form-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  width: 80%; 
+}
+
+.form-content h1{
+  text-align: center;
+}
+.form-content .end{
+  text-align: center;
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+.logo img {
+  display: block;
+  margin: 0 auto;
+}
+/* Flexbox for the name-row */
+.name-row {
+  display: flex;
+  gap: 15px; /* Space between first name and last name */
+}
+
+/* Ensuring the input fields within the row take equal space */
+.name-row input[type="text"] {
+  flex: 1;
+}
+
+
+
