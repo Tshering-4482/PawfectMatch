@@ -325,10 +325,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-
-
-
-
     // Check if the first image upload was successful before inserting data
     if ($uploadOk_1 == 1 && move_uploaded_file($_FILES["image"]["tmp_name"], $target_file_1)) {
         // Insert pet data into the database, with image_2 being optional
