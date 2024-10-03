@@ -96,78 +96,56 @@
 								</div>
 							</article>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<a href="#" class="image"><img src="../images/persiancat.png" alt="" /></a>
-								
-									<ul class="actions special">
-										<li><a href="#">Nemo</a></li>
-									</ul>
-								</article>
-								<article>
-									<a href="#" class="image"><img src="../images/mainecooncat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Neko</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/kittencat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Salmon</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/britishshorthaircat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Milo</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/bengalcat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Chloe</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/ragdollcat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Bella</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/siamesecat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Whiskers</a></li>
-									</ul>
-								</article>
-                                <article>
-									<a href="#" class="image"><img src="../images/oldcat.png" alt="" /></a>
-									
-									<ul class="actions special">
-										<li><a href="#">Luna</a></li>
-									</ul>
-								</article>
-					</div>
+            <!-- Posts -->
+            <section class="posts">
+                <?php
+                // Database connection
+                $servername = "localhost";
+                $username = "root"; // Default username for WAMP
+                $password = ""; // Default password for WAMP
+                $dbname = "pet_adoption";
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy;Copyright 2024 © PAWFECT MATCH.</a></li></ul>
-					</div>
-		</div>
-			</div>
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
-	</body>
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                /// Fetch pets data from the database
+				$sql = "SELECT cat_id, name, image FROM pet_cat"; // Modified to include pet_id
+				$result = $conn->query($sql);
+
+				if ($result->num_rows > 0) {
+    			// Output data of each pet
+    				while ($row = $result->fetch_assoc()) {
+       					echo '<article>';
+       					echo '<a href="pet_details_cat.php?cat_id=' . $row["cat_id"] . '" class="image"><img src="' . $row["image"] . '" alt="" /></a>'; // Link to pet_details.php
+        				echo '<ul class="actions special">';
+        				echo '<li><a href="pet_details_cat.php?cat_id=' . $row["cat_id"] . '">' . htmlspecialchars($row["name"]) . '</a></li>'; // Link to pet_details.php
+        				echo '</ul>';
+        				echo '</article>';
+    				}
+				} else {
+    				echo "<p>No pets found.</p>";
+				}
+
+                $conn->close();
+                ?>
+            </section>
+        </div>
+
+        <!-- Copyright -->
+        <div id="copyright">
+            <ul><li>&copy;Copyright 2024 © PAWFECT MATCH.</li></ul>
+        </div>
+    </div>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrollex.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/browser.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+</body>
 </html>

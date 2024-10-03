@@ -48,6 +48,40 @@
                 <header class="major">
                     <h2><a>Meet Our Dogs</a></h2>
                 </header>
+                <div class="dropdown">
+									<div class="dropbtn">Sex</div>
+									<div class="dropdown-content">
+									  <a href="#">Male</a>
+									  <a href="#">Female</a>
+									</div>
+								</div>
+                                <div class="dropdown">
+									<div class="dropbtn">Attributes</div>
+									<div class="dropdown-content">
+									  <a href="#">Good with cats</a>
+									  <a href="#">Good with dogs</a>
+									  <a href="#">Good with kids</a>
+									</div>
+								</div>
+                                <div class="dropdown">
+									<div class="dropbtn">Age group</div>
+									<div class="dropdown-content">
+									  <a href="#">Senior</a>
+									  <a href="#">Adult</a>
+									  <a href="#">Babies</a>
+									</div>
+								</div>
+                                <div class="dropdown">
+									<div class="dropbtn">Breed</div>
+									<div class="dropdown-content">
+									  <a href="#">Labrador Retriever</a>
+									  <a href="#">German Shepherd</a>
+									  <a href="#">Golden Retriever</a>
+                                      <a href="#">Bulldog</a>
+                                      <a href="#">Poodle</a>
+                                      <a href="#">Beagle</a>
+									</div>
+								</div>
             </article>
 
             <!-- Posts -->
