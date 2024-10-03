@@ -4,7 +4,63 @@
     <title>Pet Detail</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/main.css"/>
+    <style>
+        /* .carousel-container {
+            position: relative;
+            max-width: 100%; 
+            margin: auto;
+            overflow: hidden;
+            
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 25%; 
+            height: auto;
+            
+        } */
+        .carousel-container {
+            position: relative;
+            width: 100%; /* Adjust the width as needed */
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex; /* Align images in a row */
+            gap: 70px; /* Add space between images */
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .carousel-images img {
+            width: 100%; /* Make sure images fit within the container */
+            max-width: 300px; /* Set a max width for each image */
+            height: auto;
+            border-radius: 10px; /* Optional: add rounded corners */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            cursor: pointer;
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }   
+    </style>
 </head>
 <body class="is-preload">
     <div id="wrapper" class="fade-in">
@@ -56,10 +112,10 @@
         }
 
         // Get the pet identifier from the URL
-        $pet_id = isset($_GET['pet_id']) ? intval($_GET['pet_id']) : 0;
+        $dog_id = isset($_GET['dog_id']) ? intval($_GET['dog_id']) : 0;
 
         // Fetch pet details from the database
-        $sql = "SELECT * FROM pets WHERE pet_id = $pet_id"; // Assuming 'id' is the primary key
+        $sql = "SELECT * FROM pet_dog WHERE dog_id = $dog_id"; // Assuming 'id' is the primary key
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -71,7 +127,13 @@
                 <div class="dog-name"><?php echo htmlspecialchars($pet['name']); ?></div>
                 <div class="carousel-images" id="carouselImages">
                     <img src="<?php echo htmlspecialchars($pet['image']); ?>" alt="<?php echo htmlspecialchars($pet['name']); ?>">
-                    <!-- Add more images if necessary -->
+                    <img src="<?php echo htmlspecialchars($pet['image_2']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_3']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_4']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_5']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_6']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_7']); ?>">
+                    <img src="<?php echo htmlspecialchars($pet['image_8']); ?>">
                 </div>
                 <!-- Arrows -->
                 <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
@@ -83,7 +145,7 @@
                 <h3><?php echo htmlspecialchars($pet['name']); ?>'s Information</h3>
                 <div class="dog-info-container">
                     <div class="dog-info-column">
-                        <p><strong>Animal ID:</strong> #<?php echo htmlspecialchars($pet['pet_id']); ?></p>
+                        <p><strong>Animal ID:</strong> #<?php echo htmlspecialchars($pet['dog_id']); ?></p>
                         <p><strong>Breed:</strong> <?php echo htmlspecialchars($pet['breed']); ?></p>
                         <p><strong>Sex:</strong> <?php echo htmlspecialchars($pet['sex']); ?></p>
                         <p><strong>Weight:</strong> <?php echo htmlspecialchars($pet['weight']); ?> lbs</p>

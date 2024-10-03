@@ -67,16 +67,16 @@
                 }
 
                 /// Fetch pets data from the database
-				$sql = "SELECT pet_id, name, image FROM pets"; // Modified to include pet_id
+				$sql = "SELECT dog_id, name, image FROM pet_dog"; // Modified to include pet_id
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
     			// Output data of each pet
     				while ($row = $result->fetch_assoc()) {
        					echo '<article>';
-       					echo '<a href="pet_details.php?pet_id=' . $row["pet_id"] . '" class="image"><img src="' . $row["image"] . '" alt="" /></a>'; // Link to pet_details.php
+       					echo '<a href="pet_details.php?dog_id=' . $row["dog_id"] . '" class="image"><img src="' . $row["image"] . '" alt="" /></a>'; // Link to pet_details.php
         				echo '<ul class="actions special">';
-        				echo '<li><a href="pet_details.php?pet_id=' . $row["pet_id"] . '">' . htmlspecialchars($row["name"]) . '</a></li>'; // Link to pet_details.php
+        				echo '<li><a href="pet_details.php?dog_id=' . $row["dog_id"] . '">' . htmlspecialchars($row["name"]) . '</a></li>'; // Link to pet_details.php
         				echo '</ul>';
         				echo '</article>';
     				}

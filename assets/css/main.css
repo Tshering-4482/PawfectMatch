@@ -2,40 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
 
-.carousel-container {
-	position: relative;
-	max-width: 100%; /* Ensures the carousel is responsive */
-	margin: auto;
-	overflow: hidden;
-}
 
-.carousel-images {
-	display: flex;
-	transition: transform 0.5s ease-in-out;
-}
-
-.carousel-images img {
-	width: 25%; /* Display 4 images at a time */
-	height: auto;
-}
-
-.arrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	padding: 16px;
-	background-color: rgba(0,0,0,0.5);
-	color: white;
-	cursor: pointer;
-}
-
-.arrow-left {
-	left: 0;
-}
-
-.arrow-right {
-	right: 0;
-}
 /* Dog information section */
 .dog-info {
 	text-align: center;
@@ -84,7 +51,40 @@
 	text-align: center;
 	padding-bottom: 80px;
 }
+.carousel-container {
+	position: relative;
+	max-width: 100%; /* Ensures the carousel is responsive */
+	margin: auto;
+	overflow: hidden;
+}
 
+.carousel-images {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+	width: 25%; /* Display 4 images at a time */
+	height: auto;
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding: 16px;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	cursor: pointer;
+}
+
+.arrow-left {
+	left: 0;
+}
+
+.arrow-right {
+	right: 0;
+}
 
 /*
 	Massively by HTML5 UP
