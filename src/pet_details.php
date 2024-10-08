@@ -159,7 +159,8 @@
 
                 <!-- Apply for Adoption Button -->
                 <ul class="actions special">
-                    <li><a href="#" class="button">Apply For Adoption</a></li>
+                    <li><a href="apply.php?dog_id=<?php echo htmlspecialchars($pet['dog_id']); ?>" class="button">Apply For Adoption</a>
+                    </li>
                 </ul>
             </div>
 
