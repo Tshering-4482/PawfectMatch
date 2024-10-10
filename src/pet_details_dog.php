@@ -5,42 +5,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/main.css"/>
+    <link rel="stylesheet" href="../assets/css/footer.css"/>
     <style>
-        /* .carousel-container {
-            position: relative;
-            max-width: 100%; 
-            margin: auto;
-            overflow: hidden;
-            
-        }
 
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-images img {
-            width: 25%; 
-            height: auto;
-            
-        } */
         .carousel-container {
             position: relative;
-            width: 100%; /* Adjust the width as needed */
+            width: 100%;
             overflow: hidden;
         }
 
         .carousel-images {
-            display: flex; /* Align images in a row */
-            gap: 70px; /* Add space between images */
-            transition: transform 0.5s ease-in-out; /* Smooth transition */
+            display: flex; 
+            gap: 70px; 
+            transition: transform 0.5s ease-in-out; 
         }
 
         .carousel-images img {
-            width: 100%; /* Make sure images fit within the container */
-            max-width: 300px; /* Set a max width for each image */
+            width: 100%; 
+            max-width: 300px; 
             height: auto;
-            border-radius: 10px; /* Optional: add rounded corners */
+            border-radius: 10px; 
         }
 
         .arrow {
@@ -64,29 +48,28 @@
 </head>
 <body class="is-preload">
     <div id="wrapper" class="fade-in">
-    <!-- Header -->
+
     <header id="header">
         <a href="index.html" class="logo"><img src="../images/pngegg.png" alt=""/></a>
     </header>
-    
-    <!-- Nav -->
+
     <nav id="nav">
         <ul class="links">
             <li><a href="index.html">Home</a></li>
             <li class="active">
-                <a href="/src/adoptdog.html">
+                <a href="adoptdog.php">
                     <img src="../images/dog.png" alt="" class="nav-icon"> 
                     <span>Adopt</span>
                 </a>
             </li>
             <li>
-                <a href="adoptcat.html">
+                <a href="adoptcat.php">
                     <img src="../images/kitty.png" alt="" class="nav-icon"> 
                     <span>Adopt</span>
                 </a>
             </li>
-            <li><a href="elements.html">About Us</a></li>
-            <li><a href="elements.html">Contact Us</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
         </ul>
         <ul class="icons">
             <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -95,34 +78,29 @@
         </ul>
     </nav>
 
-    <!-- Main -->
     <div id="main">
         <?php
-        // Database connection
+
         $servername = "localhost";
-        $username = "root"; // Default username for WAMP
-        $password = ""; // Default password for WAMP
+        $username = "root"; 
+        $password = ""; 
         $dbname = "pet_adoption";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
 
-        // Get the pet identifier from the URL
         $dog_id = isset($_GET['dog_id']) ? intval($_GET['dog_id']) : 0;
 
-        // Fetch pet details from the database
-        $sql = "SELECT * FROM pet_dog WHERE dog_id = $dog_id"; // Assuming 'id' is the primary key
+        $sql = "SELECT * FROM pet_dog WHERE dog_id = $dog_id"; 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             $pet = $result->fetch_assoc();
         ?>
 
-            <!-- Carousel for Dog Images -->
             <div class="carousel-container">
                 <div class="dog-name"><?php echo htmlspecialchars($pet['name']); ?></div>
                 <div class="carousel-images" id="carouselImages">
@@ -135,12 +113,11 @@
                     <img src="<?php echo htmlspecialchars($pet['image_7']); ?>">
                     <img src="<?php echo htmlspecialchars($pet['image_8']); ?>">
                 </div>
-                <!-- Arrows -->
+
                 <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
                 <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
             </div>
 
-            <!-- Dog Information -->
             <div class="dog-info">
                 <h3><?php echo htmlspecialchars($pet['name']); ?>'s Information</h3>
                 <div class="dog-info-container">
@@ -157,9 +134,8 @@
                     </div>
                 </div>
 
-                <!-- Apply for Adoption Button -->
                 <ul class="actions special">
-                    <li><a href="apply.php?dog_id=<?php echo htmlspecialchars($pet['dog_id']); ?>" class="button">Apply For Adoption</a>
+                    <li><a href="apply_dog.php?dog_id=<?php echo htmlspecialchars($pet['dog_id']); ?>" class="button">Apply For Adoption</a>
                     </li>
                 </ul>
             </div>
@@ -175,18 +151,63 @@
     
     </div>
 
-    <!-- Copyright -->
     <div id="copyright">
-        <ul><li>&copy;Copyright 2024 © PAWFECT MATCH.</li></ul>
-    </div>
 
-    <script src="../assets/js/carousel.js"></script>
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/jquery.scrollex.min.js"></script>
-    <script src="../assets/js/jquery.scrolly.min.js"></script>
-    <script src="../assets/js/browser.min.js"></script>
-    <script src="../assets/js/breakpoints.min.js"></script>
-    <script src="../assets/js/util.js"></script>
-    <script src="../assets/js/main.js"></script>
+					<footer class="bg-dark text-white pt-4">
+						<div class="container text-center">
+							<div class="row">
+
+								<div class="col-lg-4 col-md-6 mb-4" id="adj">
+									<h5 class="footer">About Us</h5>
+									<p>
+										Welcome to PawfectMatch! We are dedicated to connecting pets with loving homes.
+										Our platform makes pet adoption easy and transparent.
+									</p>
+								</div>
+								<div class="col-lg-2 col-md-6 mb-4">
+									<h5>Quick Links</h5>
+									<ul class="list-unstyled">
+                                        <li><a href="index.html" class="text-white">Home</a></li>
+                                        <li><a href="aboutus.html" class="text-white">About</a></li>
+										<li><a href="adoptdog.php" class="text-white">Adopt a Dog</a></li>
+										<li><a href="adoptcat.php" class="text-white">Adopt a Cat</a></li>
+									</ul>
+								</div>
+								<div class="col-lg-3 col-md-6 mb-4">
+									<h5>Contact Us</h5>
+									<ul class="list-unstyled">
+										<li><i class="fas fa-map-marker-alt"></i> 1234 Street, Thimphu, Bhutan</li>
+										<li><i class="fas fa-phone"></i> +975 123 456 789</li>
+										<li><i class="fas fa-envelope"></i> support@pawfectmatch.com</li>
+									</ul>
+								</div>
+								<div class="col-lg-3 col-md-6 mb-4">
+									<h5>Follow Us</h5>
+									<a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
+									<a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
+									<a href="#" class="text-white me-2"><i class="fab fa-instagram fa-lg"></i></a>
+									<a href="#" class="text-white me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+								</div>
+							</div>
+							<div class="row lg-1">
+								<div class="col text-center">
+									<p class="mb-0">&copy; 2024 PawfectMatch. All Rights Reserved.</p>
+									<p><a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a></p>
+								</div>
+							</div>
+						</div>
+					</footer>
+					<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+					<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+				</div>
+
+                    <script src="../assets/js/carousel.js"></script>
+                    <script src="../assets/js/jquery.min.js"></script>
+                    <script src="../assets/js/jquery.scrollex.min.js"></script>
+                    <script src="../assets/js/jquery.scrolly.min.js"></script>
+                    <script src="../assets/js/browser.min.js"></script>
+                    <script src="../assets/js/breakpoints.min.js"></script>
+                    <script src="../assets/js/util.js"></script>
+                    <script src="../assets/js/main.js"></script>
 </body>
 </html>

@@ -201,7 +201,8 @@ input, select, textarea {
 } */
 .posts img {
   	height: 400px; 
-	width: 400px;
+	max-width: 350px;
+	border-radius: 10px;
 }
 .links img {
 	height: 50px; 

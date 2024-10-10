@@ -1,18 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Register For Pet Cat</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/form.css" />
 </head>
 <body class="is-preload">
     <div class="form-container">
-    <form class="form-content" action="submit_application.php" method="POST">
+    <form class="form-content" action="submit_application_cat.php" method="POST">
     <div class="container">
-        <!-- Pet ID as hidden field -->
-        <input type="hidden" name="dog_id" value="<?php echo $_GET['dog_id']; ?>">
-
+        <input type="hidden" name="cat_id" value="<?php echo $_GET['cat_id']; ?>">
         <div class="name-row">
             <input type="text" placeholder="First name" name="firstname" required>
             <input type="text" placeholder="Last name" name="lastname" required>
